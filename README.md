@@ -284,9 +284,35 @@ Facile !!!
  
  Evidemment ce n'est pas ce que l'on va faire. Sécurité oblige.
    
+--------------------------------------------------------------------------------  
    
-   
-   
+ ## ETAPE 9 : LA NORMALISATION
+
+Voici un Schéma plus détaillé de la serialisation :
+
+![SCHEMA](https://github.com/JimHin/api_tutoriel/blob/master/serializer_workflow.png)
+
+En réalité pour sérialiser il faut passer par la transformation de la donnée provenant de DB en un tableau associatif qu'on pourra dès lors encoder en JSON.
+Voici les étapes dans le sens back-end vers front-end qui est celui qui nous intéresse pour le moment:
+
+- instanciation et hydratation d'un objet Post (grâce à PostRepository)
+- requête à la DB                                 **objet contenant la réponse de la DB**
+- normalisation de cet objet                      **Tableau associatif**
+- encodage en JSON de ce tableau associatif       **données au format JSON**
+- return de ce JSON à la requête                  **réponse donnée au front-end**
+
+
+      public function index(PostRepository $postRepository, NormalizerInterface $normalizer)
+            {
+                $posts = $postRepository->findAll();
+
+                $post_normalize = $normalizer->normalize($posts);
+
+                dd($post_normalize);
+
+
+ 
+ On teste à nouveau la route http://localhost:8000/api/post
    
    
    
