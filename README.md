@@ -76,7 +76,7 @@ Un tutoriel pour se former à la création d'API avec symfony
    
  -----------------------------------------------------------------------------------------------------
    
- ## ETAPE 5 : INSTALLATION DE FIXTURES ET INSERTION DANS LA BASE
+ ## ETAPE 5 : INSTALLATION DE FIXTURES ET CHARGEMENT DANS LA BASE
   
   
    composer require --dev orm-fixtures
@@ -176,10 +176,38 @@ symfony console make:controller ApiController
 
     namespace App\Controller;
 
-    use App\Repository\PostRepository;
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     use Symfony\Component\HttpFoundation\Response;
     use Symfony\Component\Routing\Annotation\Route;
+
+    class ApiController extends AbstractController
+    {
+        /**
+         * @Route("/api", name="api")
+         * @return Response
+         */
+        public function index()
+        {
+            return $this->render('api/index.html.twig', [
+                'controller_name' => 'ApiController',
+            ]);
+        }
+    }
+    
+    
+   Dans un premier temps il faut donner à la méthode index un paramètre PostRepository à traiter.
+   Il faut également dire au contrôleur que cette méthode index ne marche que pour la route api/post avec la méthode GET
+   Enfin il faudra lui demander d'executer un finAll() à partir du PostRepository passé en paramètre.
+   on fera alors un Die and Dump de cette réponse de la DB
+   
+   Finalement on a :
+   
+   namespace App\Controller;
+
+use App\Repository\PostRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
     class ApiController extends AbstractController
     {
@@ -190,6 +218,8 @@ symfony console make:controller ApiController
          */
         public function index(PostRepository $postRepository)
         {
+            $posts = $postRepository->findAll();
+            dd($posts);
             return $this->render('api/index.html.twig', [
                 'controller_name' => 'ApiController',
             ]);
