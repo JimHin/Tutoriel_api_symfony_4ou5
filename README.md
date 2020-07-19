@@ -164,7 +164,7 @@ Mais vous vous n'en saurais rien car c'est le queryBuilder qui s'en occupe
  
  Maintenant que notre ressource est prête, il s'agit de commencer doucement avec deux actions : sérialiser et désérialiser notre ressource. Concrètement, il s'agit de passer du mode linéarisé (JSON ou XML) au format délinéarisé (objet). Pour bien comprendre, voyons schématiquement ce que nous cherchons à faire :
  
- ![SCHEMA1](https://github.com/JimHin/api_tutoriel/blob/master/serializer.png)
+ ![SCHEMA1](https://github.com/JimHin/api_symfony/blob/master/public/serializer.png)
  
  
 
@@ -233,13 +233,13 @@ symfony console make:controller ApiController
   
   ## ETAPE 7 : On teste la route http://localhost:8000/api/post
 
-![postman](https://github.com/JimHin/api_tutoriel/blob/master/dd.png)
+![postman](https://github.com/JimHin/api_symfony/blob/master/public/dd.png)
 
 
 puis sur postman pour déclarer une collection de requête qui concernent les posts de l'application:
 
 
-![postman](https://github.com/JimHin/api_tutoriel/blob/master/postman.png)
+![postman](https://github.com/JimHin/api_symfony/blob/master/public/postman.png)
 
 
 
@@ -262,7 +262,7 @@ On essai de passer des données déclarées en dur dans un premier temps:
 
         dd($json, $posts);
 
-![essaijsonbrut](https://github.com/JimHin/api_tutoriel/blob/master/jsonencode.png)
+![essaijsonbrut](https://github.com/JimHin/api_symfony/blob/master/public/jsonencode.png)
 
 Bon ben ca marche, alors on va lui demander de retourner json_encode($posts)
 la variable $posts à ce moment du programme est sensée contenir le tableau de données provenant de la DB.
@@ -273,14 +273,14 @@ Facile !!!
 
         dd($json);
 
-![essaijsondyn](https://github.com/JimHin/api_tutoriel/blob/master/bug.png)
+![essaijsondyn](https://github.com/JimHin/api_symfony/blob/master/public/bug.png)
 
  Ben ca m'affiche un tableau avec plein d'objets vides ?!!!!
  Eh oui c'est la magie de l'encapsulation. On a déclaré nos attributs en private que ce soit dans la classe Post ou la classe Comment
  Il faut donc passer par les getters pour accéder à la valeur de ces attributs.
  ### Essayez de passer ne serait-ce qu'un attribut de la classe Post en public et vous le verrais apparaître dans le JSON.
  
- ![essaijsondyn](https://github.com/JimHin/api_tutoriel/blob/master/public.png)
+ ![essaijsondyn](https://github.com/JimHin/api_symfony/blob/master/public/public.png)
  
  Evidemment ce n'est pas ce que l'on va faire. Sécurité oblige.
    
@@ -290,7 +290,7 @@ Facile !!!
 
 Voici un Schéma plus détaillé de la serialisation :
 
-![SCHEMA](https://github.com/JimHin/api_tutoriel/blob/master/serializer_workflow.png)
+![SCHEMA](https://github.com/JimHin/api_symfony/blob/master/public/serializer_workflow.png)
 
 En réalité pour sérialiser il faut passer par la transformation de la donnée provenant de DB en un tableau associatif qu'on pourra dès lors encoder en JSON.
 Voici les étapes dans le sens back-end vers front-end qui est celui qui nous intéresse pour le moment:
@@ -314,7 +314,7 @@ Voici les étapes dans le sens back-end vers front-end qui est celui qui nous in
  
  On teste à nouveau la route http://localhost:8000/api/post
    
-  ![normalisation](https://github.com/JimHin/api_tutoriel/blob/master/normalize.png) 
+  ![normalisation](https://github.com/JimHin/api_symfony/blob/master/public/normalize.png) 
    
    
    
