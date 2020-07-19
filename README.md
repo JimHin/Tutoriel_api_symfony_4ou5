@@ -229,7 +229,7 @@ symfony console make:controller ApiController
   ### Que fait la fonction dd() ?
   ### Avec quel logiciel je peux tester des requêtes sur des routes http:// ?
   
-  --------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
   
   ## ETAPE 7 : On teste la route http://localhost:8000/api/post
 
@@ -242,10 +242,47 @@ puis sur postman pour déclarer une collection de requête qui concernent les po
 ![postman](https://github.com/JimHin/api_tutoriel/blob/master/postman.png)
 
 
+
 # C'est cool mais moi, mon framework front-end, il veut du json et pas le dump d'un tableau ?!!!
+
+---------------------------------------------------------------------------------------------------------
    
-   
-   
+ ## ETAPE 8 : ON MODIFIE UN PEU NOTRE CONTRÔLEUR POUR QU'IL RETOURNE DU JSON
+
+On essai de passer des données déclarées en dur dans un premier temps:
+
+
+        $json = json_encode([
+
+            "nom" => "jim",
+            
+            "data" => "essai affichage"
+            
+        ]);
+
+        dd($json, $posts);
+
+![essaijsonbrut](https://github.com/JimHin/api_tutoriel/blob/master/jsonencode.png)
+
+Bon ben ca marche, alors on va lui demander de retourner json_encode($posts)
+la variable $posts à ce moment du programme est sensée contenir le tableau de données provenant de la DB.
+Facile !!!
+
+
+        $json = json_encode($post);
+
+        dd($json);
+
+![essaijsondyn](https://github.com/JimHin/api_tutoriel/blob/master/bug.png)
+
+ Ben ca m'affiche un tableau avec plein d'objets vides ?!!!!
+ Eh oui c'est la magie de l'encapsulation. On a déclaré nos attributs en private que ce soit dans la classe Post ou la classe Comment
+ Il faut donc passer par les getters pour accéder à la valeur de ces attributs.
+ ### Essayez de passer ne serait-ce qu'un attribut de la classe Post en public et vous le verrais apparaître dans le JSON.
+ 
+ ![essaijsondyn](https://github.com/JimHin/api_tutoriel/blob/master/public.png)
+ 
+ Evidemment ce n'est pas ce que l'on va faire. Sécurité oblige.
    
    
    
