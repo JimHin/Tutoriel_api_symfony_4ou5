@@ -311,7 +311,11 @@ Voici les étapes dans le sens back-end vers front-end qui est celui qui nous in
                 dd($post_normalize);
 
 
- 
+ On oubli surtout pas de signaler au contrôleur dans quel espace de nom se trouve NormalizerInterface
+                 
+                 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+                 
+                 
  On teste à nouveau la route http://localhost:8000/api/post
    
   ![normalisation](https://github.com/JimHin/api_symfony/blob/master/public/normalize.png) 
