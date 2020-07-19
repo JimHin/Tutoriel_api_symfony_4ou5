@@ -167,8 +167,7 @@ Mais vous vous n'en saurais rien car c'est le queryBuilder qui s'en occupe
  ![SCHEMA1](https://github.com/JimHin/api_tutoriel/blob/master/serializer.png)
  
  
- 
- ![SCHEMA](https://github.com/JimHin/api_tutoriel/blob/master/serializer_workflow.png)
+
  -------------------------------------------------------------------------------------------------------
   
   
