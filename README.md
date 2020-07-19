@@ -76,7 +76,7 @@ Un tutoriel pour se former à la création d'API avec symfony
    
  -----------------------------------------------------------------------------------------------------
    
- ## ETAPE 6 : INSTALLATION DE FIXTURES ET INSERTION DANS LA BASE
+ ## ETAPE 5 : INSTALLATION DE FIXTURES ET INSERTION DANS LA BASE
   
   
    composer require --dev orm-fixtures
@@ -169,8 +169,32 @@ Mais vous vous n'en saurais rien car c'est le queryBuilder qui s'en occupe
  
 
  -------------------------------------------------------------------------------------------------------
-  
-  
+
+# ETAPE 6: DECLARATION DU CONTROLEUR
+
+symfony console make:controller ApiController
+
+    namespace App\Controller;
+
+    use App\Repository\PostRepository;
+    use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+    use Symfony\Component\HttpFoundation\Response;
+    use Symfony\Component\Routing\Annotation\Route;
+
+    class ApiController extends AbstractController
+    {
+        /**
+         * @Route("/api/post", name="api_post_index", methods = {"GET"})
+         * @param PostRepository $postRepository
+         * @return Response
+         */
+        public function index(PostRepository $postRepository)
+        {
+            return $this->render('api/index.html.twig', [
+                'controller_name' => 'ApiController',
+            ]);
+        }
+    }
    
    
    
