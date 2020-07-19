@@ -226,7 +226,23 @@ symfony console make:controller ApiController
         }
     }
    
-   
+  ### Que fait la fonction dd() ?
+  ### Avec quel logiciel je peux tester des requêtes sur des routes http:// ?
+  
+  --------------------------------------------------------------------------------------------------
+  
+  ## ETAPE 7 : On teste la route http://localhost:8000/api/post
+
+![postman](https://github.com/JimHin/api_tutoriel/blob/master/dd.png)
+
+
+puis sur postman pour déclarer une collection de requête qui concernent les posts de l'application:
+
+
+![postman](https://github.com/JimHin/api_tutoriel/blob/master/postman.png)
+
+
+# C'est cool mais moi, mon framework front-end, il veut du json et pas le dump d'un tableau ?!!!
    
    
    
