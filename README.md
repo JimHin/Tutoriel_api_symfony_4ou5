@@ -314,7 +314,7 @@ Voici les étapes dans le sens back-end vers front-end qui est celui qui nous in
  
  On teste à nouveau la route http://localhost:8000/api/post
    
-   
+  ![normalisation](https://github.com/JimHin/api_tutoriel/blob/master/normalize.png) 
    
    
    
