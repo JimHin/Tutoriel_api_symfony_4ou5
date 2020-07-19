@@ -1,0 +1,93 @@
+# api_symfony
+Un tutoriel pour se former à la création d'API avec symfony
+
+
+
+-----------------------------------------------------------------------
+
+  ## ETAPE 1  : INSTALLATION DU PROJET
+  
+          symfony new api --full
+          
+----------------------------------------------------------------------- 
+
+## ETAPE 2  : PARAMETRAGE DE L'ENVIRONNEMENT BASE DE DONNÉES
+      
+  ### Avec le SGBDR phpmyadmin, créez une base de données "api_symfony"
+  ### Ouvrez le dossier du projet dans votre EDI
+  ### Dans le fichier .env faire apparaître 
+      DATABASE_URL=mysql://utilisateur:@127.0.0.1:3306/api_symfony
+      
+
+----------------------------------------------------------------------
+
+## ETAPE 3 : CREATION DES ENTITES POST ET COMMENT
+
+  ### symfony console make:entity     ou     php bin/console make:entity
+  
+   Class name of the entity to create or update (e.g. FierceElephant):
+   Post
+   
+   Pour ce qui est des attributs :
+   
+   title   string  255   no
+   content  text  no
+   
+Appuyer sur ENTER pour finir.
+   
+   ### symfony console make:entity     ou     php bin/console make:entity
+   
+   Class name of the entity to create or update (e.g. FierceElephant):
+   Comment
+   
+   Pour ce qui est des attributs :
+   
+   username  string  255   no
+   content  text  no
+   
+   Appuyer sur ENTER pour finir.
+   
+   ### symfony console make:entity     ou     php bin/console make:entity
+   
+    Class name of the entity to create or update (e.g. FierceElephant):
+   Post
+   
+   comme nouvelle attribut:
+   comments   OneToMany 
+   
+   répondez yes quand il vous demandera s'il faut créer un attribut posts dans la classe Comment
+   cette attribut posts aura automatiquement le type ManyToOne
+   
+   ---------------------------------------------------------------------------------------------------
+   ## ETAPE 5 : MIGRATIONS
+   
+    symfony console make:migration
+
+    symfony console doctrine:migrations:migrate 
+
+ WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (yes/no) [yes]:
+ > 
+
+[notice] Migrating up to DoctrineMigrations\Version20200718191831
+[warning] Migration DoctrineMigrations\Version20200718191644 was executed but did not result in any SQL statements.
+[notice] finished in 119.6ms, used 12M memory, 2 migrations executed, 3 sql queries
+
+  
+   
+ -----------------------------------------------------------------------------------------------------
+   
+  ## ETAPE 6 : INSTALLATION DE FIXTURES ET INSERTION DANS LA BASE   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
