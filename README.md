@@ -31,7 +31,10 @@ Un tutoriel pour se former à la création d'API avec symfony
    Pour ce qui est des attributs :
    
    title   string  255   no
+   
    content  text  no
+   
+   createdAt datetime no
    
    Appuyer sur ENTER pour finir.
    
@@ -43,7 +46,10 @@ Un tutoriel pour se former à la création d'API avec symfony
    Pour ce qui est des attributs :
    
    username  string  255   no
+   
    content  text  no
+   
+   createdAt datetime no
    
    Appuyer sur ENTER pour finir.
    
