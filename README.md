@@ -325,6 +325,48 @@ Voici les étapes dans le sens back-end vers front-end qui est celui qui nous in
  On teste à nouveau la route http://localhost:8000/api/post
    
   ![normalisation](https://github.com/JimHin/api_symfony/blob/master/public/normalize.png) 
+  
+  -------------------------------------------------------------------------------------------------
+  
+  ## ETAPE 9 : LA CREATION DE GROUPES DE DONNÉES
+  
+  
+  Cela se fait grâce à la règle @Groups au niveau de la clé primaire
+  
    
-   
+       class Post
+    {
+        /**
+         * @ORM\Id()
+         * @ORM\GeneratedValue()
+         * @ORM\Column(type="integer")
+         * @Groups("post:read")
+         */
+        private $id;
+
+        /**
+         * @ORM\Column(type="string", length=255)
+         * @Groups("post:read")
+         */
+        private $title;
+
+        /**
+         * @ORM\Column(type="text")
+         * @Groups("post:read")
+         */
+        private $content;
+
+        /**
+         * @ORM\Column(type="datetime")
+         * @Groups("post:read")
+         */
+        private $createdAt;
+
+        /**
+         * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="post")
+         */
+        private $comments;
+        
+        
+        ICI SEULE LES VALEURS DES ATTRIBUTS TAGGÉS post:read SERONT EXPOSÉES
    
