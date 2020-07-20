@@ -361,6 +361,8 @@ Voici les étapes dans le sens back-end vers front-end qui est celui qui nous in
          * @Groups("post:read")
          */
         private $createdAt;
+        
+ICI ON VA EXCLURE COMMENTS EN NE LUI ACCORDANT PAS L'APPARTENANCE A post:read
 
         /**
          * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="post")
