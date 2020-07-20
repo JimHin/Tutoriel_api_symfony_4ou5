@@ -328,7 +328,7 @@ Voici les étapes dans le sens back-end vers front-end qui est celui qui nous in
   
   -------------------------------------------------------------------------------------------------
   
-  ## ETAPE 9 : LA CREATION DE GROUPES DE DONNÉES
+  ## ETAPE 10 : LA CREATION DE GROUPES DE DONNÉES
   
   
   Cela se fait grâce à la règle @Groups au niveau de la clé primaire
