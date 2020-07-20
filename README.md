@@ -328,10 +328,17 @@ Voici les étapes dans le sens back-end vers front-end qui est celui qui nous in
   
   -------------------------------------------------------------------------------------------------
   
-  ## ETAPE 10 : LA CREATION DE GROUPES DE DONNÉES
+  ## ETAPE 10 : LA CREATION DE GROUPES DE DONNÉES / PREMIER PAS VERS LA STANDARDISATION RESTful
   
-  
-  Cela se fait grâce à la règle @Groups au niveau de la clé primaire
+Une API est RESTful quand elle respecte le principe d'architecture REST. 
+Ce principe d'architecture s'applique aux services Web. 
+La particularité principale de cette architecture est que la partie serveur (l'API) et la partie client communiquent sans que le client ne connaisse la structure et le contenu des informations stockées sur le serveur. 
+La seule chose que les deux parties de l'application connaissent est le média qu'elles utilisent pour communiquer.
+
+
+### Un premier pas est de créer des groupes de données afin de ne pas exposer de données sensibles
+
+Cela se fait grâce à la règle @Groups au niveau de la clé primaire
   
    
        class Post
