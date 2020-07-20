@@ -368,5 +368,6 @@ Voici les étapes dans le sens back-end vers front-end qui est celui qui nous in
         private $comments;
         
         
-        ICI SEULE LES VALEURS DES ATTRIBUTS TAGGÉS post:read SERONT EXPOSÉES
+        ICI SEULE LES VALEURS DES ATTRIBUTS TAGGÉS post:read SERONT EXPOSÉES ET CE POUR EVITER L'ERREUR DE RÉFÉRENCE CIRCULAIRE 
+        (Apparement pour nous à ce stade l'ORM coorige cette erreur seule désormais. Ce qui veut dire que les développeurs exclues les clés étrangères sans qu'on ait forcémment à se servir des groupes pour les exclure.)
    
