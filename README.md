@@ -371,7 +371,7 @@ ICI ON VA EXCLURE COMMENTS EN NE LUI ACCORDANT PAS L'APPARTENANCE A post:read
         
         
  ICI SEULE LES VALEURS DES ATTRIBUTS TAGGÉS post:read SERONT EXPOSÉES ET CE POUR EVITER L'ERREUR DE RÉFÉRENCE CIRCULAIRE 
-  (Apparement pour nous à ce stade l'ORM coorige cette erreur seule désormais. Ce qui veut dire que les développeurs exclues les clés étrangères sans qu'on ait forcémment à se servir des groupes pour les exclure.)
+  (Apparement pour nous à ce stade l'ORM corrige cette erreur seule désormais. Ce qui veut dire que les développeurs se sont démerdés pour exclure les clés étrangères sans qu'on ait forcémment à se servir des groupes cela.)
   
   ### Evidemment il faut dire à la méthode index() du contrôleur de cette route qu'il faut n'extraire que ce groupe
   
