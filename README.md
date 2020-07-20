@@ -375,7 +375,7 @@ ICI ON VA EXCLURE COMMENTS EN NE LUI ACCORDANT PAS L'APPARTENANCE A post:read
   
   ### Evidemment il faut dire à la méthode index() du contrôleur de cette route qu'il faut n'extraire que ce groupe
   
-  $post_normalize = $normalizer->normalize($posts, null, ['groups'=> 'post:read']);
+    $post_normalize = $normalizer->normalize($posts, null, ['groups'=> 'post:read']);
   
   La fonction normalize prends généralement 3 paramètres. l'objet à normaliser, son format (null par défaut) et les filtres (ici les membres du groupe post:read
   
