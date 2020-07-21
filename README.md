@@ -478,7 +478,9 @@ ICI SEULE LES VALEURS DES ATTRIBUTS TAGGÉS post:read SERONT EXPOSÉES CAR ON VA
                 public function index(PostRepository $postRepository, SerializerInterface $serialize)
                     {
                         
-                        return $this->json($postRepository->findAll(), 200, []); //on peut ajouter en quatrième paramètre le filtre groupe
+                        return $this->json($postRepository->findAll(), 200, []);
+                        
+                        //on peut ajouter en quatrième paramètre le filtre groupe
                     }
         }
 
