@@ -463,6 +463,23 @@ ICI SEULE LES VALEURS DES ATTRIBUTS TAGGÉS post:read SERONT EXPOSÉES CAR ON VA
                     }
         }
 
-
+ ------------------------------------------------------------------------------------------
+ 
+ ## ETAPE 14 : ON SIMPLIFIE A L'EXTRÊME
+ 
+     class ApiController extends AbstractController
+        {
+            /**
+                 * @Route("/api/post", name="api_post_index", methods = {"GET"})
+                 * @param PostRepository $postRepository
+                 * @param SerializerInterface $serialize
+                 * @return Response
+                 */
+                public function index(PostRepository $postRepository, SerializerInterface $serialize)
+                    {
+                        
+                        return $this->json($postRepository->findAll(), 200, []); //on peut ajouter en quatrième paramètre le filtre groupe
+                    }
+        }
 
 
