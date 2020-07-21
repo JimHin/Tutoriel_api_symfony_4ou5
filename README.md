@@ -426,23 +426,17 @@ ICI SEULE LES VALEURS DES ATTRIBUTS TAGGÉS post:read SERONT EXPOSÉES CAR ON VA
      class ApiController extends AbstractController
         {
             /**
-             * @Route("/api/post", name="api_post_index", methods = {"GET"})
-             * @param PostRepository $postRepository
-             * @param NormalizerInterface $normalizer
-             * @return Response
-             * @throws ExceptionInterface
-             */
-            public function index(PostRepository $postRepository, *** SerializerInterface $serializer *** )
-            {
-               
-                $posts = $postRepository->findAll();
-            
-                $json = $serializer->serialize($posts, 'json', ['groups' => 'post:read']
-
-                // On retourne la réponse attendue
-                return new Response($json, 200, ["Content-type" => "application/json"]);
-
-            }
+                 * @Route("/api/post", name="api_post_index", methods = {"GET"})
+                 * @param PostRepository $postRepository
+                 * @param SerializerInterface $serialize
+                 * @return Response
+                 */
+                public function index(PostRepository $postRepository, SerializerInterface $serialize)
+                {
+                    $posts = $postRepository->findAll();
+                    $json = $serialize->serialize($posts, 'json');
+                    return new JsonResponse($json, 200, [], true);
+                }
         }
 
 
