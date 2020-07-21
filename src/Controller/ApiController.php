@@ -22,7 +22,6 @@ class ApiController extends AbstractController
     public function index(PostRepository $postRepository, SerializerInterface $serialize)
     {
         $posts = $postRepository->findAll();
-        $json = $serialize->serialize($posts, 'json');
-        return new JsonResponse($json, 200, [], true);
+        return $this->json($posts, 200, []); //on peut ajouter en quatrième paramètre le filtre groupe
     }
 }
