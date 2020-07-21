@@ -15,9 +15,8 @@ class ApiController extends AbstractController
     /**
      * @Route("/api/post", name="api_post_index", methods = {"GET"})
      * @param PostRepository $postRepository
-     * @param NormalizerInterface $normalizer
+     * @param SerializerInterface $serialize
      * @return Response
-     * @throws ExceptionInterface
      */
     public function index(PostRepository $postRepository, SerializerInterface $serialize)
     {
