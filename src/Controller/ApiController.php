@@ -21,13 +21,8 @@ class ApiController extends AbstractController
      */
     public function index(PostRepository $postRepository, SerializerInterface $serialize)
     {
-
         $posts = $postRepository->findAll();
         $json = $serialize->serialize($posts, 'json');
-
-
-        // On retourne la réponse attendue
         return new JsonResponse($json, 200, [], true);
-
     }
 }
