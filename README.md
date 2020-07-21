@@ -484,4 +484,9 @@ ICI SEULE LES VALEURS DES ATTRIBUTS TAGGÉS post:read SERONT EXPOSÉES CAR ON VA
                     }
         }
 
-
+------------------------------------------------------------------------------------------
+ 
+ ## ETAPE 15 : ON VA MAINTENANT CRÉER UNE METHODE POUR INSERER UN NOUVEAU POST
+ 
+ 
+ 
