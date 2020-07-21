@@ -420,4 +420,29 @@ ICI SEULE LES VALEURS DES ATTRIBUTS TAGGÉS post:read SERONT EXPOSÉES CAR ON VA
   
   La fonction normalize prends généralement 3 paramètres. l'objet à normaliser, son format (null par défaut) et les filtres (ici les membres du groupe post:read
   
-  
+  ------------------------------------------------------------------------------------------
+ ## ETAPE 12 : LE SERIALIZER DE SYMFONY
+ 
+     class ApiController extends AbstractController
+        {
+            /**
+             * @Route("/api/post", name="api_post_index", methods = {"GET"})
+             * @param PostRepository $postRepository
+             * @param NormalizerInterface $normalizer
+             * @return Response
+             * @throws ExceptionInterface
+             */
+            public function index(PostRepository $postRepository, *** SerializerInterface $serializer *** )
+            {
+               
+                $posts = $postRepository->findAll();
+            
+                $json = $serializer->serialize($posts, 'json', ['groups' => 'post:read']
+
+                // On retourne la réponse attendue
+                return new Response($json, 200, ["Content-type" => "application/json"]);
+
+            }
+        }
+
+
