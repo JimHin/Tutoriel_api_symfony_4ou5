@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Exception\ExceptionInterface;
@@ -26,7 +27,7 @@ class ApiController extends AbstractController
 
 
         // On retourne la réponse attendue
-        return new Response($json, 200, ["Content-type" => "application/json"]);
+        return new JsonResponse($json, 200, [], true);
 
     }
 }
