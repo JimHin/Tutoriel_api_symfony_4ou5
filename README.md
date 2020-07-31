@@ -8,6 +8,9 @@ Un tutoriel pour se former à la création d'API avec symfony
   ## ETAPE 1  : INSTALLATION DU PROJET
   
           symfony new api --full
+
+
+Il est à noter que normalement on part d'un squelette symfony. J'ai opté ici pour le --full pour ne pas à avoir à installer les dépendances en cours de développement afin qu'on se concentre sur les étapes.
           
 ----------------------------------------------------------------------- 
 
