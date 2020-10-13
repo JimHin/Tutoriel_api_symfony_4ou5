@@ -367,8 +367,9 @@ Voici les étapes dans le sens back-end vers front-end qui est celui qui nous in
 ------------------------------------------------------------------------------------------
  ## ETAPE 11 : LA CREATION DE GROUPES DE DONNÉES / PREMIER PAS VERS LA STANDARDISATION RESTful
   
-Une API est RESTful quand elle respecte le principe d'architecture REST. 
-Ce principe d'architecture s'applique aux services Web. 
+Une API est RESTful quand elle respecte les principes du standard REST.
+Le terme REST a été défini par Roy T. Fielding dans sa thèse de Doctorat.
+Ce standard s'applique aux services Web. 
 La particularité principale de cette architecture est que la partie serveur (l'API) et la partie client communiquent sans que le client ne connaisse la structure et le contenu des informations stockées sur le serveur. 
 La seule chose que les deux parties de l'application connaissent est le média qu'elles utilisent pour communiquer.
 
